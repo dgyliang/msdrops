@@ -9,7 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
     loadDataFromLocalStorage();
     setupEventListeners();
     setupKeyPressListeners();
+    loadOptionsFromLocalStorage('nameSelect');
+    loadOptionsFromLocalStorage('dropSelect');
+    setupAutocomplete('newNameInput', 'nameSelect');
+    setupAutocomplete('newDropInput', 'dropSelect');
 });
+
+// Autocomplete for the typing fields.
+function setupAutocomplete(inputId, selectId) {
+    var input = $("#" + inputId);
+    var select = document.getElementById(selectId);
+
+    var availableOptions = Array.from(select.options).map(option => option.value);
+    input.autocomplete({
+        source: availableOptions
+    });
+}
 
 // Sets up keypress listeners for adding new options to the select elements.
 function setupKeyPressListeners() {
@@ -37,7 +52,9 @@ function addNewOption(selectId, inputId) {
     if (newValue && !Array.from(select.options).some(option => option.value === newValue)) {
         var newOption = new Option(newValue, newValue, false, true);
         select.add(newOption);
+        saveOptionsToLocalStorage(selectId)
     }
+    setupAutocomplete(inputId, selectId);
     input.value = '';
 }
 
@@ -56,10 +73,12 @@ function removeOption(selectId, inputId) {
                 break;
             }
         }
+        saveOptionsToLocalStorage(selectId);
     } else {
         alert("Option does not exist and cannot be removed.");
     }
 
+    setupAutocomplete(inputId, selectId);
     input.value = '';
 }
 
@@ -171,6 +190,21 @@ function saveDataToLocalStorage() {
     localStorage.setItem("names", JSON.stringify([...names]));
     localStorage.setItem("items", JSON.stringify([...items]));
     localStorage.setItem("tableData", JSON.stringify(tableData));
+}
+
+// Saves the current options to local storage.
+function saveOptionsToLocalStorage(selectId) {
+    var select = document.getElementById(selectId);
+    var options = Array.from(select.options).map(option => option.value);
+    localStorage.setItem(selectId + "Options", JSON.stringify(options));
+}
+// Loads options to local storage.
+function loadOptionsFromLocalStorage(selectId) {
+    var options = JSON.parse(localStorage.getItem(selectId + "Options"));
+    if (options && options.length > 0) {
+        var select = document.getElementById(selectId);
+        select.innerHTML = options.map(option => `<option value="${option}">${option}</option>`).join('');
+    }
 }
 
 // Exports the table data to a CSV file.
