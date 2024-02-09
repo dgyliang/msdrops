@@ -93,3 +93,9 @@ th {
     background-color: #61587D;
     border-radius: 10px;
 }
+
+.delete-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    vertical-align: middle;
+}

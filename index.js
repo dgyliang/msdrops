@@ -65,8 +65,11 @@ function removeOption(selectId, inputId) {
 
 // Sets the current date in the date input field.
 function initializeDateInput() {
-    $("#dateInput").val(new Date().toISOString().split('T')[0]);
+    var dateInput = document.getElementById('dateInput');
+    var today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('max', today); // Set the max attribute to today's date
 }
+
 
 // Sets up event listeners for buttons.
 function setupEventListeners() {
@@ -121,11 +124,30 @@ function handleSubmit() {
 // Updates the table displaying recorded data.
 function updateTable() {
     const dataTable = document.getElementById("dataTable");
-    let tableContent = '<tr><th>Name</th><th>Item</th><th>Date</th></tr>';
-    tableData.forEach((data) => {
-        tableContent += `<tr><td>${data.name}</td><td>${data.item}</td><td>${data.date}</td></tr>`;
+    let tableContent = '<tr><th>Name</th><th>Item</th><th>Date</th></tr>'; // Removed the separate Action column
+    tableData.forEach((data, index) => {
+        tableContent += `<tr>
+            <td><span class="delete-icon" onclick="deleteRow(${index})" title="Delete this row">❌ </span>${data.name}</td>
+            <td>${data.item}</td>
+            <td>${data.date}</td>
+        </tr>`;
     });
     dataTable.innerHTML = tableContent;
+}
+
+// Deletes a row
+function deleteRow(rowIndex) {
+    const confirmDelete = window.confirm("Are you sure you want to delete this row?");
+    if (!confirmDelete) {
+        return;
+    }
+
+    // Remove the row from tableData
+    tableData.splice(rowIndex, 1);
+
+    // Update the UI and local storage
+    updateTable();
+    saveDataToLocalStorage(); // Ensure this function name matches your actual function for saving to local storage
 }
 
 // Asks for confirmation before clearing the table.
