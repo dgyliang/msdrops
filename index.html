@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Head Section: Contains metadata, title, and links to external resources -->
+        <title>🎲🎲🌪️🌪️</title>
+        <link rel="stylesheet" href="index.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <!-- Title Section -->
+        <header>
+            <h1>Mushroom Game Drop Recording Tool</h1>
+        </header>
+
+        <!-- Input Section: Contains form for data input -->
+        <section id="inputSection">
+            <div class="form-group">
+                <label for="nameSelect">Name:</label>
+                <select id="nameSelect"></select>
+                <input type="text" id="newNameInput" placeholder="Name">
+                <button onclick="addNewOption('nameSelect', 'newNameInput')">Add</button>
+                <button onclick="removeOption('nameSelect', 'newNameInput')">Remove</button>
+            </div>
+            <div class="form-group">
+                <label for="dropSelect">Dropped Item:</label>
+                <select id="dropSelect"></select>
+                <input type="text" id="newDropInput" placeholder="Dropped Item">
+                <button onclick="addNewOption('dropSelect', 'newDropInput')">Add</button>
+                <button onclick="removeOption('dropSelect', 'newDropInput')">Remove</button>
+            </div>
+            <div class="form-group">
+                <label for="dateInput">Date:</label>
+                <input type="date" id="dateInput">
+            </div>
+            <div class="button-container">
+                <button id="submitButton">Submit</button>
+            </div>
+        </section>
+
+        <!-- Data Section: Displays the recorded drops and controls -->
+        <section id="dataSection">
+            <h2>Recorded Drops</h2>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Character Name</th>
+                        <th>Dropped Item</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data table will be populated here -->
+                </tbody>
+            </table>
+            <div class="button-container">
+                <button id="exportButton">Export to CSV</button>
+                <input type="file" id="importInput" style="display:none;">
+                <button id="importButton">Import from CSV</button>
+                <button id="clearTableButton">Clear Table</button>
+            </div>
+        </section>
+
+        <!-- Analysis Section: Shows analysis of the drops -->
+        <section id="analysisSection">
+            <h2>Days Since Last Drop</h2>
+            <table id="analysisTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Item</th>
+                        <th>Days Since Last Drop</th>
+                        <th>Average Days Between Drops</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Analysis data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Instructions Section -->
+        <section>
+            <h2>How to use:</h2>
+            <p>
+                1. Add in your character name, item drop, and date. Press submit.<br><br>
+                2. The "Recorded Drops" table will be populated. You can export your data to a CSV file. Import your CSV file to populate the table with existing data. Ensure your CSV has 3 columns: Name, Item, Date.<br><br>
+                3. "Days Since Last Drop" calculates the time between today and the last time a character had a drop of an item. For more than 2 data points, it calculates the average days between drops.
+            </p>
+            <img src="mining.jpg" alt="Mining Image">
+        </section>
+    </body>
+</html>
