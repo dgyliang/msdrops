@@ -1,7 +1,7 @@
 /* Import custom font */
 @font-face {
     font-family: 'custom';
-    src: url('../fonts/font.ttf');
+    src: url('/fonts/font.ttf');
 }
 
 header {

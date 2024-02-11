@@ -1,6 +1,6 @@
-import { items, tableData } from "./constants.js";
-import { updateTable, updatePresetsTable, updateAnalysis, saveDataToLocalStorage } from "./dataManagement.js";
-import { initializeAutocomplete, updateUniqueValues } from "./appFunction.js";
+import { items, tableData } from "/js/constants.js";
+import { updateTable, updatePresetsTable, updateAnalysis, saveDataToLocalStorage } from "/js/dataManagement.js";
+import { initializeAutocomplete, updateUniqueValues } from "/js/appFunction.js";
 
 export function createCheckboxes() {
     $('#checkbox-container').empty(); // Clear any existing checkboxes
