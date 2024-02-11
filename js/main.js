@@ -1,7 +1,7 @@
-import {loadDataFromLocalStorage} from './js/dataManagement.js'
-import {setupEnterKeyListeners, setupEventListeners} from './js/listeners.js'
-import {loadItemPresets} from './js/appFunction.js'
-import {initializeDateInput} from './js/ui.js'
+import {loadDataFromLocalStorage} from './dataManagement.js'
+import {setupEnterKeyListeners, setupEventListeners} from './listeners.js'
+import {loadItemPresets} from './appFunction.js'
+import {initializeDateInput} from './ui.js'
 
 // Initialization when the document is ready
 $(document).ready(function() {

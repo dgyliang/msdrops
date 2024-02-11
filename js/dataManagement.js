@@ -1,6 +1,6 @@
-import {names, items, tableData, namePreset} from './js/constants.js'
-import { updateUniqueValues, refreshAutocompleteSources } from './js/appFunction.js';
-import { updateUI } from './js/ui.js';
+import {names, items, tableData, namePreset} from './constants.js'
+import { updateUniqueValues, refreshAutocompleteSources } from './appFunction.js';
+import { updateUI } from './ui.js';
 
 // Updates the table displaying recorded data.
 export function updateTable() {
