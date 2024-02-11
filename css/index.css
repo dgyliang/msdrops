@@ -1,0 +1,211 @@
+/* Import custom font */
+@font-face {
+    font-family: 'custom';
+    src: url('../fonts/font.ttf');
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#headerImage {
+    margin-right: 10px;
+    width: 80px;
+    height: auto;
+}
+
+/* Base Styles */
+body {
+    font-family: 'custom', sans-serif;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    margin: auto;
+    width: 50%;
+}
+
+/* Custom Scrollbar*/
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+h1, h2 { text-align: center; }
+
+img {
+    display: block;
+    margin: auto;
+    width: 30%;
+    height: auto;
+    margin-top: 30px;
+}
+
+/* Form Styles */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="date"], select {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Layout for Input and Presets Sections */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Input Section Styles */
+#inputSection {
+    margin: auto;
+    width: 50%;
+    box-shadow: 0 0 15px rgba(150, 150, 150, 0.15);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.button-container button, .form-group button {
+    margin: 0 5px;
+    background-color: #716969;
+    color: #fbfbfb;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.button-container button:hover, .form-group button:hover {
+    background-color: #bcabae;
+    transform: scale(1.05);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-shadow: 0 0 15px rgba(150, 150, 150, 0.15);
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+th {
+    background-color: #3D3E3E;
+    border-radius: 10px;
+}
+
+.delete-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Autocomplete Dropdown */
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(150, 150, 150, 0.15);
+    background-color: #adadad;
+}
+
+#presetsSection {
+    flex-basis: 40%;
+    max-width: 40%;
+    background-color: transparent;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(150, 150, 150, 0.15);
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 400px;
+    overflow-y: auto;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* Presets Table Styles */
+#presetsTable {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#presetsTable th, #presetsTable td {
+    padding: 2px;
+    text-align: center;
+}
+
+#presetsTable th {
+    border-radius: 1px;
+}
+
+#presetsTable td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Name and Item Presets Container Styles */
+#namePresets, #itemPresets {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#itemPresets #checkbox-container{
+    text-align: left;
+}
+
+input {
+    background-color: #cccccc;
+}

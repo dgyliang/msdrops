@@ -3,42 +3,67 @@
     <head>
         <!-- Head Section: Contains metadata, title, and links to external resources -->
         <title>🎲🎲🌪️🌪️</title>
-        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="./css/index.css" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="index.js"></script>
+        <script type="module" src="./js/main.js"></script>
     </head>
     <body>
         <!-- Title Section -->
         <header>
-            <h1>Mushroom Game Drop Recording Tool</h1>
+            <div class="header-container">
+                <img src="./img/spellbook.webp" alt="Spellbook" id="headerImage">
+                <h1>Mushroom Game Drop Recording Tool</h1>
+            </div>
         </header>
 
-        <!-- Input Section: Contains form for data input -->
-        <section id="inputSection">
-            <div class="form-group">
-                <label for="nameSelect">Name:</label>
-                <select id="nameSelect"></select>
-                <input type="text" id="newNameInput" placeholder="Name">
-                <button onclick="addNewOption('nameSelect', 'newNameInput')">Add</button>
-                <button onclick="removeOption('nameSelect', 'newNameInput')">Remove</button>
-            </div>
-            <div class="form-group">
-                <label for="dropSelect">Dropped Item:</label>
-                <select id="dropSelect"></select>
-                <input type="text" id="newDropInput" placeholder="Dropped Item">
-                <button onclick="addNewOption('dropSelect', 'newDropInput')">Add</button>
-                <button onclick="removeOption('dropSelect', 'newDropInput')">Remove</button>
-            </div>
-            <div class="form-group">
-                <label for="dateInput">Date:</label>
-                <input type="date" id="dateInput">
-            </div>
-            <div class="button-container">
-                <button id="submitButton">Submit</button>
-            </div>
-        </section>
+        <div class="input-container">
+            <!-- Input Section: Contains form for data input -->
+            <section id="inputSection">
+                <h2>Input Data</h2>
+                <div class="form-group">
+                    <label for="newNameInput">Name:</label>
+                    <input type="text" id="newNameInput" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="newDropInput">Item:</label>
+                    <input type="text" id="newDropInput" placeholder="Item name">
+                </div>
+                <div class="form-group">
+                    <label for="dateInput">Date:</label>
+                    <input type="date" id="dateInput">
+                </div>
+                <div class="button-container">
+                    <button id="submitButton">Submit</button>
+                </div>
+            </section>
+            <section id="presetsSection">
+                <h2>Pre-populate Dropdown</h2>
+                <div id="namePresets">
+                    <h3>Pre-populate Names</h3>
+                    <input type="text" id="presetInput" placeholder="Enter a new name">
+                    <div class="button-container">
+                        <button id="addPreset">Add to Preset</button>
+                    </div>
+                    <table id="presetsTable">
+                        <thead>
+                            <tr>
+                                <th>Added Names</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Preset rows will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="itemPresets">
+                    <h3>Item Presets</h3>
+                    <div id="checkbox-container">
+                        <!-- Checkboxes will be dynamically inserted here -->
+                    </div>
+            </section>
+        </div>
 
         <!-- Data Section: Displays the recorded drops and controls -->
         <section id="dataSection">
@@ -82,15 +107,18 @@
         </section>
 
         <!-- Instructions Section -->
-        <section>
+        <section id="instructionsSection">
             <h2>How to use:</h2>
             <p>
                 1. Add in your character name, item name, and date. Press submit.<br><br>
+                1b. You can optionally pre-populate the autocomplete suggestions dropdown menu by typing in names or checking the checkboxes in the "Pre-populate Dropdown" section. <br><br>
                 2. The "Recorded Drops" table should now be populated. You can export your data to a CSV file, or import a CSV file with existing data to populate the table with existing data. Make sure your CSV has 3 columns: Name, Item, Date. The first
                 row should be the column names.<br><br>
-                3. The "Days Since Last Drop" section will calculate the time between today and the last time a character had a drop of an item. If there are more than 2 data points, it will alao calculate the average days between drops for a character.
+                3. The "Days Since Last Drop" section will calculate the time between today and the last time a character had a drop of an item. If there are more than 2 data points, it will also calculate the average days between drops for a character.
+                <br><br><br>
+                Note: Your data is saved to your browser's local storage. This means if you use this tool in incognito mode or clear your cookies you will lose your data. Make sure to back-up your data by exporting to a CSV if you are clearing your cookies!
             </p>
-            <img src="mining.jpg" alt="Mining Image">
+            <img src="./img/mining.jpg" alt="Mining Image">
         </section>
     </body>
 </html>
