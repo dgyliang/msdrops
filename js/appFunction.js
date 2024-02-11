@@ -1,6 +1,6 @@
-import { names, items, namePreset, tableData, itemPresetPath } from "/js/constants.js";
-import { createCheckboxes, updateUI } from "/js/ui.js";
-import { loadDataFromLocalStorage, saveDataToLocalStorage, updatePresetsTable } from "/js/dataManagement.js";
+import { names, items, namePreset, tableData, itemPresetPath } from "./js/constants.js";
+import { createCheckboxes, updateUI } from "./js/ui.js";
+import { loadDataFromLocalStorage, saveDataToLocalStorage, updatePresetsTable } from "./js/dataManagement.js";
 
 // Initialize autocomplete for Name and Drop inputs.
 export function initializeAutocomplete() {

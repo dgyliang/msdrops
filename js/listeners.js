@@ -1,5 +1,5 @@
-import { handleSubmit, addNamePreset, deleteNamePreset} from "/js/appFunction.js";
-import { clearTable, deleteRow, exportToCSV, importFromCSV } from "/js/dataManagement.js";
+import { handleSubmit, addNamePreset, deleteNamePreset} from "./js/appFunction.js";
+import { clearTable, deleteRow, exportToCSV, importFromCSV } from "./js/dataManagement.js";
 
 export function setupEnterKeyListeners() {
     $('#newNameInput, #newDropInput, #dateInput, #presetInput').off('keypress').on('keypress', function(event) {
