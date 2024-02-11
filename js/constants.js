@@ -6,4 +6,4 @@ export let itemPresets = {};
 export let tableData = [];
 
 // path to item presets
-export let itemPresetPath = "../data/itemPresets.json"
+export let itemPresetPath = "./data/itemPresets.json"
